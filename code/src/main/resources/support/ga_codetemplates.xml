@@ -5,12 +5,12 @@
  * @since ${project_name}1.0.0
  */</template><template autoinsert="false" context="overridecomment_context" deleted="false" description="Comment for overriding methods" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.overridecomment" name="overridecomment">/**
  * @description
- * @author &lt;a href="mailto:bin.du@saw.so"&gt;胡瑞永&lt;/a&gt; 
+ * @author &lt;a href="mailto:vinthuy@qq.com"&gt;胡瑞永&lt;/a&gt; 
  * ${tags} 
  * @since ${project_name}1.0.0 
  */</template><template autoinsert="false" context="settercomment_context" deleted="false" description="Comment for setter method" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.settercomment" name="settercomment"/><template autoinsert="false" context="gettercomment_context" deleted="false" description="Comment for getter method" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.gettercomment" name="gettercomment"/><template autoinsert="false" context="delegatecomment_context" deleted="false" description="Comment for delegate methods" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.delegatecomment" name="delegatecomment">/**
  * @description
- * @author &lt;a href="mailto:bin.du@saw.so"&gt;胡瑞永&lt;/a&gt; 
+ * @author &lt;a href="mailto:vinthuy@qq.com"&gt;胡瑞永&lt;/a&gt; 
  * ${tags}
  * @since ${project_name}1.0.0 
  */</template><template autoinsert="false" context="filecomment_context" deleted="false" description="Comment for created Java files" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.filecomment" name="filecomment">/*
