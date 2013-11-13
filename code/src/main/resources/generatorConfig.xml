@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+    <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+
+<generatorConfiguration>
+
+	<classPathEntry location="F:\maven_repository\mysql\mysql-connector-java\5.1.9\mysql-connector-java-5.1.9.jar" />  
+
+	<context id="context1" targetRuntime="MyBatis3">
+
+		<!-- 去除自动生成的注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<!-- 连接配置 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/joygame" userId="root"
+			password="root" />
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- 指定实体对象生成后所在的包 -->
+		<javaModelGenerator targetPackage="com.joygame.socialservice.domain"
+			targetProject="socialservice/src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- 生成DAO实现类表示的Mapper配置文件 -->
+		<sqlMapGenerator targetPackage="mybatis"
+			targetProject="socialservice/src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- 生成DAO接口 -->
+		<javaClientGenerator targetPackage="com.joygame.socialservice.dao"
+			targetProject="socialservice/src/main/java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- 定义数据表与Domain对象 -->
+		<!--  
+		<table tableName="admin_advertmessage" domainObjectName="AdvertMessage"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />
+			
+		<table tableName="Admin_FriendInterestedProduct" domainObjectName="FriendInterestedProduct"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />
+			
+		<table tableName="Admin_GiftPackage" domainObjectName="GiftPackage"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />
+			
+		<table tableName="Admin_PopularProduct" domainObjectName="PopularProduct"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />
+			
+		<table tableName="Admin_Product" domainObjectName="Product"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />
+			
+		<table tableName="Admin_Product_ProductType" domainObjectName="ProductPType" 
+			enableCountByExample="false" enableUpdateByExample="false" 
+      		enableDeleteByExample="false" enableSelectByExample="false" 
+      		selectByExampleQueryId="false" /> 
+      		
+      	<table tableName="Admin_ProductType" domainObjectName="ProductType"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />
+			
+		<table tableName="Admin_SysBroadMessage" domainObjectName="SysBroadMessage"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />
+			
+		<table tableName="Admin_Theme" domainObjectName="Theme"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />
+ 
+		<table tableName="Admin_UserInterestedProduct" domainObjectName="UserInterestedProduct"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />
+
+		<table tableName="SC_BroadMessage_Redis" domainObjectName="BroadMessage"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />
+			
+		<table tableName="SC_BroadMessageReply_Redis" domainObjectName="BroadMessageReply"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />
+			
+		<table tableName="SC_FansCountTop" domainObjectName="FansCountTop"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />
+		
+		<table tableName="SC_ScoreTop" domainObjectName="ScoreTop" 
+			enableCountByExample="false" enableUpdateByExample="false" 
+      		enableDeleteByExample="false" enableSelectByExample="false" 
+      		selectByExampleQueryId="false" /> 
+		
+		<table tableName="SC_SuggestInfo" domainObjectName="SuggestInfo" 
+			enableCountByExample="false" enableUpdateByExample="false" 
+      		enableDeleteByExample="false" enableSelectByExample="false" 
+      		selectByExampleQueryId="false" /> 
+      	
+      	<table tableName="SC_User_Friend" domainObjectName="UserFriend" 
+			enableCountByExample="false" enableUpdateByExample="false" 
+      		enableDeleteByExample="false" enableSelectByExample="false" 
+      		selectByExampleQueryId="false" > 
+      	</table>
+      	
+      	<table tableName="SC_User_GiftPackage" domainObjectName="UserGiftPackage" 
+			enableCountByExample="false" enableUpdateByExample="false" 
+      		enableDeleteByExample="false" enableSelectByExample="false" 
+      		selectByExampleQueryId="false" > 
+      	</table>
+      	
+      	<table tableName="SC_User_Product" domainObjectName="UserProduct" 
+			enableCountByExample="false" enableUpdateByExample="false" 
+      		enableDeleteByExample="false" enableSelectByExample="false" 
+      		selectByExampleQueryId="false" > 
+      	</table>
+      	
+      	<table tableName="SC_UserDetail" domainObjectName="UserDetail" 
+			enableCountByExample="false" enableUpdateByExample="false" 
+      		enableDeleteByExample="false" enableSelectByExample="false" 
+      		selectByExampleQueryId="false" /> 	
+		
+		<table tableName="SC_UserMessage_Redis" domainObjectName="UserMessage" 
+			enableCountByExample="false" enableUpdateByExample="false" 
+      		enableDeleteByExample="false" enableSelectByExample="false" 
+      		selectByExampleQueryId="false" /> 	
+      	
+      	<table tableName="SC_UserMobileAccount" domainObjectName="UserMobileAccount" 
+			enableCountByExample="false" enableUpdateByExample="false" 
+      		enableDeleteByExample="false" enableSelectByExample="false" 
+      		selectByExampleQueryId="false" /> 	
+      	
+      	<table tableName="SC_UserSinaAccount" domainObjectName="UserSinaAccount" 
+			enableCountByExample="false" enableUpdateByExample="false" 
+      		enableDeleteByExample="false" enableSelectByExample="false" 
+      		selectByExampleQueryId="false" /> 
+      	
+      	<table tableName="SC_UserStatInfo" domainObjectName="UserStatInfo" 
+			enableCountByExample="false" enableUpdateByExample="false" 
+      		enableDeleteByExample="false" enableSelectByExample="false" 
+      		selectByExampleQueryId="false" /> 
+      	
+      	<table tableName="SC_UserTencentAccount" domainObjectName="UserTencentAccount" 
+			enableCountByExample="false" enableUpdateByExample="false" 
+      		enableDeleteByExample="false" enableSelectByExample="false" 
+      		selectByExampleQueryId="false" /> 
+      	
+      	<table tableName="SDK_MerchandiseExchange" domainObjectName="MerchandiseExchange" 
+			enableCountByExample="false" enableUpdateByExample="false" 
+      		enableDeleteByExample="false" enableSelectByExample="false" 
+      		selectByExampleQueryId="false" /> 
+      	
+      	<table tableName="SdkUser" domainObjectName="User" 
+			enableCountByExample="false" enableUpdateByExample="false" 
+      		enableDeleteByExample="false" enableSelectByExample="false" 
+      		selectByExampleQueryId="false" /> 
+      	
+      	<table tableName="admin_giftpackage_activecode" domainObjectName="GiftPackageActiveCode"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />
+		--> 
+		
+		<table tableName="" domainObjectName=""
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" />
+			
+	</context>
+
+</generatorConfiguration>  
