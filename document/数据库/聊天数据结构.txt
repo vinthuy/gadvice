@@ -1,0 +1,1 @@
+head(用户头像)，chatContent 聊天内容 ，createTime 生成时间 ,userId 帐号，nickName 昵称
