@@ -1,1 +1,3 @@
 head(用户头像)，chatContent 聊天内容 ，createTime 生成时间 ,userId 帐号，nickName 昵称
+
+记录用户一段时间的聊天记录是必要且必须的
