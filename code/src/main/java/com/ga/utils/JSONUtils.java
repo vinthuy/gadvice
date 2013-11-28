@@ -29,6 +29,10 @@ public class JSONUtils {
 		return jsonResult;
 	}
 	
+	public static Object jsonToObject(String str){
+		return JSONObject.stringToValue(str);
+	}
+	
 	/**
 	 * @description 将数组对象转换为JSON字符串
 	 * @author <a href="mailto:vinthuy@qq.com">胡瑞永</a> 

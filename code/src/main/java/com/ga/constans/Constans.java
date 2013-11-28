@@ -24,4 +24,6 @@ public class Constans {
 	/** 0.禁用 */
 	public static int STATUS_DISABLE = 0;
 	
+	/**查询数据库默认条数*/
+	public static int DATABASE_QUERY_SIZE = 20;
 }

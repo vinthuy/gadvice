@@ -225,4 +225,16 @@ public class StringUtils {
 		return UUID.randomUUID().toString();  
 	}
 	
+	/**
+	 * @description 根据给定的字符串创建可以创造UUID的字符串
+	 * @author <a href="mailto:charlie166@163.com">李阳</a>
+	 * @param content
+	 * @return 
+	 * @since ga1.0.0
+	 */
+	public static String transToUUIDString(String content){
+		String md5 = EncryptUtils.messageDigestEncrypt(content, "MD5");
+		return md5.substring(0, 7) + "-" + md5.substring(7, 13) + "-" + md5.substring(13, 19) + "-" +
+			md5.substring(19, 25) + "-" + md5.substring(25);
+	}
 }
