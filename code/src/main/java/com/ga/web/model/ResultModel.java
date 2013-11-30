@@ -17,8 +17,10 @@ package com.ga.web.model;
 public class ResultModel<T> {
 	/** 填充数据 */
 	private T data;
-	/** 提示消息 */
+	/**消息码*/
 	private int msgCode;
+	/** 提示消息 */
+	private String message;
 	/** 状态码 */
 	private int code;
 
@@ -30,13 +32,12 @@ public class ResultModel<T> {
 		this.data = data;
 	}
 
-	
-	public int getMsgCode() {
-		return msgCode;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setMsgCode(int msgCode) {
-		this.msgCode = msgCode;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public int getCode() {
@@ -45,6 +46,14 @@ public class ResultModel<T> {
 
 	public void setCode(int code) {
 		this.code = code;
+	}
+
+	public int getMsgCode() {
+		return msgCode;
+	}
+
+	public void setMsgCode(int msgCode) {
+		this.msgCode = msgCode;
 	}
 
 }

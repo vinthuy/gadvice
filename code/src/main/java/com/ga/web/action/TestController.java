@@ -29,7 +29,6 @@ public class TestController {
 
 	@RequestMapping("/index.do")
 	public String index() {
-		System.out.println("123");
 		return "home";
 	}
 
