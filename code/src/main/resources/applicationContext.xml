@@ -19,7 +19,7 @@
 	<import resource="classpath:spring/applicationContext-persistence.xml" />
 	<import resource="classpath:spring/applicationContext-tx.xml" />
 	<import resource="classpath:spring/applicationContext-redis.xml" />
-	
+		<import resource="classpath:spring/applicationContext-redis-service.xml" />
 	<bean id="threadManager" class="com.ga.support.ThreadManager" init-method="init" destroy-method="distory">
 		<property name="threadSize" value="${threadSize}" />
 	</bean>

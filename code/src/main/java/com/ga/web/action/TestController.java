@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.ga.constans.ResultCode;
+import com.ga.domain.Test;
 import com.ga.service.TestService;
 import com.ga.web.model.ResultModel;
 
@@ -53,6 +55,22 @@ public class TestController {
 		return result;
 	}
 
+	@SuppressWarnings("rawtypes")
+	@RequestMapping("/testCache.do")
+	@ResponseBody
+	public ResultModel testCache(@RequestParam String name) {
+		ResultModel result = new ResultModel();
+		try {
+			testService.testCache(name);
+			result.setCode(ResultCode.SUCCESS);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			result.setMsgCode(ResultCode.MSG_TEST_EXCEPTION);
+			result.setCode(ResultCode.FAILED);
+		}
+		return result;
+	}
+	
 	@SuppressWarnings("rawtypes")
 	@RequestMapping("/test/{name}")
 	@ResponseBody

@@ -7,15 +7,18 @@
 package com.ga.service;
 
 import com.ga.exception.BizException;
+import com.ga.service.redis.CacheService;
 
 /**
  * @description
  * @author  <a href="mailto:vinthuy@qq.com">胡瑞永</a>
  * @version 1.0, 2013-9-17
+ * @param <V>
+ * @param <K>
  * @see     
  * @since   girladvice1.0
  */
-public interface TestService {
+public interface TestService{
 
 	/** 
 	 * @description 插入
@@ -24,5 +27,7 @@ public interface TestService {
 	 * @since girladvice1.0.0
 	 */
 	public void insert(String name) throws BizException;
+
+	public void testCache(String name) ;
 
 }
