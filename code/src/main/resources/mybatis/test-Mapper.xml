@@ -2,18 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.ga.dao.TestDao">
 	<resultMap id="testMap" type="com.ga.domain.Test">
-		<id column="id" property="id"  />
-		<result column="name" property="name"  />
+		<id column="id" property="id" />
+		<result column="name" property="name" />
 	</resultMap>
-	
+
 	<insert id="insert" parameterType="string">
-	 INSERT INTO test.test 
-	(id, 
-	NAME
-	)
-	VALUES
-	(NULL, 
-	#{name}
-	);
+		INSERT INTO test.test
+		(id,
+		NAME
+		)
+		VALUES
+		(NULL,
+		#{name}
+		)
 	</insert>
 </mapper>
