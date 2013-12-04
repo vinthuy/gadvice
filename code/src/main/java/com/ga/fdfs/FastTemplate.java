@@ -1,7 +1,14 @@
 package com.ga.fdfs;
 
 import java.io.InputStream;
+
 import org.csource.common.NameValuePair;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisCallback;
+import org.springframework.data.redis.core.RedisConnectionUtils;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
+import org.springframework.util.Assert;
 
 import com.ga.utils.StringUtils;
 
@@ -154,4 +161,31 @@ public class FastTemplate implements IFastTemplate {
 		return results;
 	}
 
+	public <T> T execute(FdfsCallback<T> action) throws Exception {
+		FDFSConnectionFactory factory = getFactory();
+		FDFSConnection conn = null;
+		T result;
+		try {
+			conn = factory.getConnection();
+			result = action.doInRedis(conn);
+
+		} finally {
+			conn.close();
+		}
+		return result;
+	}
+	
+	public <T> T execute(FdfsCallback<T> action,String groupName) throws Exception {
+		FDFSConnectionFactory factory = getFactory();
+		FDFSConnection conn = null;
+		T result;
+		try {
+			conn = factory.getConnection(groupName);
+			result = action.doInRedis(conn);
+
+		} finally {
+			conn.close(groupName);
+		}
+		return result;
+	}
 }

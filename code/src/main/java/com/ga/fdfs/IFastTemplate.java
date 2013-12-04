@@ -22,4 +22,8 @@ public interface IFastTemplate {
 	public String[] uploadFileByStream(String groupName, InputStream inStream,
 			String uploadFileName, long fileLength) throws Exception;
 
+	public <T> T execute(FdfsCallback<T> action) throws Exception;
+
+	public <T> T execute(FdfsCallback<T> action, String groupName)
+			throws Exception;
 }
