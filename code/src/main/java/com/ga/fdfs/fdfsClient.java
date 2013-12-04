@@ -25,6 +25,13 @@ public class fdfsClient {
 	public fdfsClient() {
 	}
 
+	static {
+		try {
+			initFdfsClient();
+		}  catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * @description 初始化fdfs客户端
 	 * @author <a href="mailto:vinthuy@qq.com">胡瑞永</a>
@@ -126,7 +133,7 @@ public class fdfsClient {
 	 * @throws IOException
 	 * @since gadvice1.0.0
 	 */
-	public String uploadFile(InputStream inStream, String uploadFileName,
+	public static String uploadFile(InputStream inStream, String uploadFileName,
 			long fileLength) throws IOException {
 		byte[] fileBuff = getFileBuffer(inStream, fileLength);
 		String fileId = "";
@@ -169,9 +176,9 @@ public class fdfsClient {
 	 * @return
 	 * @since gadvice1.0.0
 	 */
-	private byte[] getFileBuffer(InputStream inStream, long fileLength)
+	private static byte[] getFileBuffer(InputStream inStream, long fileLength)
 			throws IOException {
-		byte[] buffer = new byte[256 * 1024];
+		byte[] buffer = new byte[ 1024];
 		byte[] fileBuffer = new byte[(int) fileLength];
 		int count = 0;
 		int length = 0;
@@ -279,7 +286,7 @@ public class fdfsClient {
 	private static void doTest() {
 
 		try {
-			String local_file_name = "D:/vinappend.jpg";
+			String local_file_name = "D:/test.jpg";
 			NameValuePair[] pair = { new NameValuePair(upload_time,
 					new Date().toString()) };
 			String conFilePath = fdfsClient.class.getClassLoader()
