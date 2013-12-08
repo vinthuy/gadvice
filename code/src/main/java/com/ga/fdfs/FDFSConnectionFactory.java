@@ -172,4 +172,15 @@ public class FDFSConnectionFactory {
 	public void releaseConnection(StorageServerInfo ss) {
 		storageServerList.add(ss);
 	}
+	
+	public void closedConnection(FDFSConnection connection,String groupName){
+		if(StringUtils.isNullOrEmpty(groupName))
+		connection.close();
+		else connection.close(groupName);
+	}
+	public void closedConnection(FDFSConnection connection){
+		
+		connection.close();
+	}
+	
 }

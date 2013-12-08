@@ -50,7 +50,7 @@ public class FastTemplate implements IFastTemplate {
 		if (pair == null)
 			throw new FdfsException("pair is null");
 		fileId = connection.uploadFile(localFileName, extName, pair);
-		connection.close();
+		factory.closedConnection(connection);
 		return fileId;
 	}
 
@@ -69,7 +69,7 @@ public class FastTemplate implements IFastTemplate {
 		if (connection == null)
 			throw new FdfsException("storageConnection is null");
 		int code = connection.deleteFile(fileId);
-		connection.close();
+		factory.closedConnection(connection);
 		return code;
 	}
 
@@ -101,7 +101,7 @@ public class FastTemplate implements IFastTemplate {
 		if (pair == null)
 			throw new FdfsException("pair is null");
 		fileId = connection.modifyFile(fileId, newLocalFileName, extName, pair);
-		connection.close();
+		factory.closedConnection(connection);
 		return fileId;
 	}
 
@@ -127,7 +127,7 @@ public class FastTemplate implements IFastTemplate {
 
 		String fileId = connection.uploadFile(inStream, uploadFileName,
 				fileLength);
-		connection.close();
+		factory.closedConnection(connection);
 		return fileId;
 	}
 
@@ -157,7 +157,7 @@ public class FastTemplate implements IFastTemplate {
 			throw new FdfsException("uploadFileName is null");
 		String[] results = connection.uploadFileByStream(groupName, inStream,
 				uploadFileName, fileLength);
-		connection.close(groupName);
+		factory.closedConnection(connection,groupName);
 		return results;
 	}
 
@@ -170,7 +170,7 @@ public class FastTemplate implements IFastTemplate {
 			result = action.doInRedis(conn);
 
 		} finally {
-			conn.close();
+			factory.closedConnection(conn);
 		}
 		return result;
 	}
@@ -184,7 +184,7 @@ public class FastTemplate implements IFastTemplate {
 			result = action.doInRedis(conn);
 
 		} finally {
-			conn.close(groupName);
+			factory.closedConnection(conn,groupName);
 		}
 		return result;
 	}
